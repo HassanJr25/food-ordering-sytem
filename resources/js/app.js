@@ -1,1 +1,1 @@
-import './bootstrap';
+// Food Ordering System - No frameworks

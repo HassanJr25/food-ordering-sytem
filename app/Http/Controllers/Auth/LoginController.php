@@ -34,6 +34,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        // No middleware needed in constructor for Laravel 11
+        
     }
 }
