@@ -29,6 +29,10 @@ Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('
 // Authenticated Routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
+// Customer Menu Routes
+Route::get('/menu', [App\Http\Controllers\Customer\MenuController::class, 'index'])->name('menu.index');
+Route::get('/menu/{foodItem}', [App\Http\Controllers\Customer\MenuController::class, 'show'])->name('menu.show');
+
 // Admin Routes - Protected by admin middleware
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
@@ -36,4 +40,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     })->name('dashboard');
     
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('food-items', \App\Http\Controllers\Admin\FoodItemController::class);
 });

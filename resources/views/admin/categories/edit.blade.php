@@ -81,7 +81,17 @@
     </div>
 </div>
 
-@section('scripts')
+<div class="form-group" style="margin-top: 2rem;">
+                <button type="submit" class="btn btn-success" style="padding: 0.75rem 2rem;">Update Category</button>
+                <a href="{{ route('admin.categories.index') }}" class="btn btn-primary" style="padding: 0.75rem 2rem; margin-left: 0.5rem;">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@endsection
+
+@push('scripts')
 <script>
     // Image Preview
     document.getElementById('image').addEventListener('change', function(e) {
@@ -96,4 +106,4 @@
         }
     });
 </script>
-@endSection
+@endpush

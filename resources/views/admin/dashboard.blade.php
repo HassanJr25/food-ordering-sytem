@@ -24,14 +24,14 @@
             </div>
             
             <div class="col-4">
-                <div class="dashboard-card success">
-                    <div>
-                        <h3>Manage Food Items</h3>
-                        <p>Add, edit, or delete food items.</p>
-                    </div>
-                    <a href="#" class="btn btn-success" style="background: rgba(255,255,255,0.2);">Coming Soon</a>
-                </div>
-            </div>
+    <div class="dashboard-card success">
+        <div>
+            <h3>Manage Food Items</h3>
+            <p>Add, edit, or delete food items.</p>
+        </div>
+        <a href="{{ route('admin.food-items.index') }}" class="btn btn-success" style="background: rgba(255,255,255,0.2);">Go to Food Items</a>
+    </div>
+</div>
             
             <div class="col-4">
                 <div class="dashboard-card warning">

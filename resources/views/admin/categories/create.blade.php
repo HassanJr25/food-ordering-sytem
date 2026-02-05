@@ -64,7 +64,9 @@
     </div>
 </div>
 
-@section('scripts')
+@endsection
+
+@push('scripts')
 <script>
     // Image Preview
     document.getElementById('image').addEventListener('change', function(e) {
@@ -79,4 +81,4 @@
         }
     });
 </script>
-@endSection
+@endpush
