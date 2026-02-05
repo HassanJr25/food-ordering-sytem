@@ -62,12 +62,18 @@
                 </div>
 
                 <!-- Order Button -->
-                @auth
-                    <div style="display: flex; gap: 1rem;">
-                        <button class="btn btn-success" style="flex: 1; padding: 1rem 2rem; font-size: 1.1rem;">🛒 Add to Cart</button>
-                        <button class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Buy Now</button>
-                    </div>
-                @else
+@auth
+    <form method="POST" action="{{ route('cart.add', $foodItem) }}">
+        @csrf
+        <div style="margin-bottom: 1.5rem;">
+            <label for="quantity" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="99" style="width: 100px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1.1rem;">
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn-success" style="flex: 1; padding: 1rem 2rem; font-size: 1.1rem;">🛒 Add to Cart</button>
+        </div>
+    </form>
+@else
                     <div style="background: #fff3cd; padding: 1.5rem; border-radius: 8px; text-align: center;">
                         <p style="color: #856404; margin-bottom: 1rem;">Please login to order this item</p>
                         <div style="display: flex; gap: 1rem; justify-content: center;">

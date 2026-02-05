@@ -22,6 +22,7 @@
             @else
                 <li><a href="/">Home</a></li>
                 <li><a href="{{ route('menu.index') }}">Menu</a></li>
+                <li><a href="{{ route('cart.index') }}">🛒 Cart</a></li>
                 <li><a href="/home">Dashboard</a></li>
                 @if(Auth::user()->role === 'admin')
                     <li><a href="/admin/dashboard">Admin Panel</a></li>
