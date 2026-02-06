@@ -118,7 +118,7 @@
                                 <strong style="color: #27ae60;">TZS {{ number_format($cartTotal, 2) }}</strong>
                             </div>
 
-                            <a href="#" class="btn btn-success" style="width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Proceed to Checkout</a>
+                            <a href="{{ route('orders.checkout') }}" class="btn btn-success" style="width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

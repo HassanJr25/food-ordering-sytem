@@ -33,14 +33,23 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/menu', [App\Http\Controllers\Customer\MenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/{foodItem}', [App\Http\Controllers\Customer\MenuController::class, 'show'])->name('menu.show');
 
-// Customer Cart Routes (Protected - must be logged in)
+// Customer Cart & Order Routes (Protected - must be logged in)
 Route::middleware('auth')->group(function () {
+    // Cart Routes
     Route::get('/cart', [App\Http\Controllers\Customer\CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add/{foodItem}', [App\Http\Controllers\Customer\CartController::class, 'add'])->name('cart.add');
     Route::put('/cart/update/{cart}', [App\Http\Controllers\Customer\CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/remove/{cart}', [App\Http\Controllers\Customer\CartController::class, 'remove'])->name('cart.remove');
     Route::delete('/cart/clear', [App\Http\Controllers\Customer\CartController::class, 'clear'])->name('cart.clear');
+    
+    // Order Routes
+    Route::get('/checkout', [App\Http\Controllers\Customer\OrderController::class, 'checkout'])->name('orders.checkout');
+    Route::post('/orders/place', [App\Http\Controllers\Customer\OrderController::class, 'placeOrder'])->name('orders.place');
+    Route::get('/orders/confirmation/{order}', [App\Http\Controllers\Customer\OrderController::class, 'confirmation'])->name('orders.confirmation');
+    Route::get('/orders', [App\Http\Controllers\Customer\OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [App\Http\Controllers\Customer\OrderController::class, 'show'])->name('orders.show');
 });
+
 // Admin Routes - Protected by admin middleware
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
