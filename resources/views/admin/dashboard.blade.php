@@ -39,7 +39,7 @@
                         <h3>Manage Orders</h3>
                         <p>View and manage customer orders.</p>
                     </div>
-                    <a href="#" class="btn btn-warning" style="background: rgba(255,255,255,0.2);">Coming Soon</a>
+                    <a href="{{ route('admin.orders.index') }}" class="btn btn-warning" style="background: rgba(255,255,255,0.2);">Go to Orders</a>
                 </div>
             </div>
         </div>
