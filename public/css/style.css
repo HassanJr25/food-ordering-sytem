@@ -309,36 +309,71 @@ table tbody tr:last-child td {
 }
 
 /* Alerts */
+/* Alert Messages */
 .alert {
     padding: 1rem 1.5rem;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .alert-success {
     background-color: #d4edda;
-    border: 1px solid #c3e6cb;
     color: #155724;
+    border-left: 4px solid #28a745;
 }
 
-.alert-error,
-.alert-danger {
+.alert-success::before {
+    content: "✅";
+    font-size: 1.5rem;
+}
+
+.alert-error {
     background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
     color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-error::before {
+    content: "❌";
+    font-size: 1.5rem;
 }
 
 .alert-info {
     background-color: #d1ecf1;
-    border: 1px solid #bee5eb;
     color: #0c5460;
+    border-left: 4px solid #17a2b8;
 }
 
-/* Error Text Under Inputs */
-.error-text {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
+.alert-info::before {
+    content: "ℹ️";
+    font-size: 1.5rem;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-warning::before {
+    content: "⚠️";
+    font-size: 1.5rem;
 }
 
 /* Links */
@@ -393,5 +428,95 @@ hr {
     .auth-container {
         margin: 2rem auto;
         padding: 0 1rem;
+    }
+}
+/* Button Loading State */
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Empty State Styling */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #999;
+}
+
+.empty-state-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: #999;
+    margin-bottom: 2rem;
+}
+
+/* Hover Effects for Cards */
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Print Styles */
+@media print {
+    header, nav, .btn, .alert {
+        display: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Accessibility Improvements */
+*:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Mobile Navigation Toggle (for future) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 0.75rem;
     }
 }
